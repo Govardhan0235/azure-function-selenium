@@ -26,9 +26,9 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 RUN LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELEASE) && \
     wget http://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip && \
     unzip chromedriver_linux64.zip && ln -s $PWD/chromedriver /usr/local/bin/chromedriver
-
+RUN echo $PATH
 ENV PATH="/usr/local/bin/chromedriver:${PATH}"
-
+RUN echo $PATH
 # 3. Install selenium in Python
 RUN pip install -U selenium
 
