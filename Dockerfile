@@ -28,9 +28,12 @@ RUN LATEST=$(wget -q -O - http://chromedriver.storage.googleapis.com/LATEST_RELE
     unzip chromedriver_linux64.zip && ln -s $PWD/chromedriver /usr/local/bin/chromedriver
 
 ENV PATH="/usr/local/bin/chromedriver"
-
+RUN pip install --upgrade pip
 # 3. Install selenium in Python
 RUN pip install -U selenium
+
+
+
 
 # 4. Finally, copy python code to image
 COPY . /home/site/wwwroot
