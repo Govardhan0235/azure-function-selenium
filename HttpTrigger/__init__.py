@@ -31,7 +31,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     storage_account_url = "https://aksdemorg87eb.blob.core.windows.net"
     client = BlobServiceClient(account_url=storage_account_url, credential=credential)
     blob_name = "test" + str(datetime.now()) + ".txt"
-    blob_client = client.get_blob_client(container=samplecontainer, blob=blob_name)
+    blob_client = client.get_blob_client(container="samplecontainer", blob=blob_name)
     blob_client.upload_blob(link_list)
 
     return func.HttpResponse(
